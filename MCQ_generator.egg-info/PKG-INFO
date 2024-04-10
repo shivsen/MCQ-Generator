@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: MCQ-generator
+Version: 0.1
+Author: shivam
+Requires-Dist: OpenAi
+Requires-Dist: langchain
+Requires-Dist: streamlit
+Requires-Dist: pyPDF2
+Requires-Dist: python-dotenv
