@@ -1,0 +1,21 @@
+{
+    "1" : {
+    "mcq" : "Multiple Choice Question 1",
+    "options" : {
+    "option 1" : "option a",
+    "option 2" : "option b",
+    "option 3" : "option c",
+    "option 4" : "option d"
+    },
+    "correct" : "correct option"
+    },
+    
+    "2" : {
+    "mcq" : "Multiple Choice Question 2",
+    "options" : {
+    "option 1" : "option a",
+    "option 2" : "option b",
+    "option 3" : "option c",
+    "option 4" : "option d"},
+    "correct" : "correct option"
+    }}

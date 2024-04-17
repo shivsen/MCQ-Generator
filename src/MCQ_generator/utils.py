@@ -5,10 +5,10 @@ import json
 
 # function for read pdf and text file
 
-def read_file (file_path):
-    if file_path.endswith(".pdf"):
+def read_file (file):
+    if file.name.endswith(".pdf"):
         try:
-            pages = PyPDF2.PdfReader(file_path)
+            pages = PyPDF2.PdfReader(file)
             text=""
             for i in range(len(pages.pages)):
                 text+= pages.pages[i].extract_text()
@@ -16,8 +16,8 @@ def read_file (file_path):
         except Exception as e:
             raise Exception("pdf file not readed")
         
-    elif  file_path.endswith(".txt"):
-            return file_path.read().decode("utf-8")
+    elif  file.name.endswith(".txt"):
+            return file.read().decode("utf-8")
         
     else:
         raise Exception("Unsupported Format")
@@ -34,7 +34,7 @@ def get_table_data(quiz_str):
                     f"{option} -> {option_value}" for option, option_value in value["options"].items()
                ])
 
-            correct=value("correct")
+            correct=value["correct"]
             quiz_table_data.append({"MCQ" : mcq, "Choices" : options, "Correct" : correct})
             
         return quiz_table_data

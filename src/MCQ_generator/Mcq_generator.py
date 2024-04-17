@@ -9,6 +9,7 @@ from src.MCQ_generator.logger import logging
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
+from src.MCQ_generator.utils import read_file, get_table_data
 
 # Importing pypdf2 for the pdf related data
 from PyPDF2 import PdfReader
@@ -16,7 +17,7 @@ from PyPDF2 import PdfReader
 #load environment variable from the .env fiile
 load_dotenv()
 
-os.getenv("OPENAI_API_KEY") #Accessing the env from the env file
+KEY = os.getenv("OPENAI_API_KEY") #Accessing the env from the env file
 
 llm = ChatOpenAI(api_key=KEY, model="gpt-3.5-turbo") #creating object of OpenAI
 
@@ -38,12 +39,11 @@ quiz_gen_chain = LLMChain(llm=llm, prompt=generate_quiz_prompt, output_key="quiz
 template2 = '''
 {quiz}
 from the above mention quizes
-check if there is any grammatical mistakes
-or is there any question out from the {data}.
+check if there is any grammatical mistakes.
 if you find any, correct it''' # 2nd tempolate for mistakes and evaluation
 
 quiz_eval_prompt = PromptTemplate(
-    input_variables=["quiz", "data"],
+    input_variables=["quiz"],
     template=template2
 ) # prompt for the evaluation with the orignal daata
 
