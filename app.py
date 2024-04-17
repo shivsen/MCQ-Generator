@@ -1,3 +1,4 @@
-from src.MCQ_generator.logger import logging
+from src.MCQ_generator.utils import read_file
 
-logging.info("checking the logger")
+read_file("G:/Projetcs/Github\MCQ Generator with langchain and OpenAI/attention_is_all_you_need.pdf")
+
